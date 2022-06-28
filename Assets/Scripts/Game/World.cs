@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class World : MonoBehaviour
+namespace Game
 {
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// Перечисление для отображения игровой эпохи.
+    /// </summary>
+    [System.Flags]
+    public enum TimeEpoch
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Past,
+        Present
     }
 }
