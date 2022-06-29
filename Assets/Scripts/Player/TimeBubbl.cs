@@ -16,7 +16,7 @@ namespace Game
         private float _counter;
 
         [SerializeField]
-        private PlayerController player;
+        private Player player;
 
         private SpriteMask mask;
 

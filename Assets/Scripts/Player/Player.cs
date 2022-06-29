@@ -3,10 +3,15 @@ using UnityEngine;
 namespace Game
 {
     /// <summary>
-    /// Контроллер игрока.
+    /// Игрок.
     /// </summary>
-    public class PlayerController : MonoBehaviour
+    public class Player : MonoBehaviour
     {
         public TimeEpoch playerEpoch { get; set; } = TimeEpoch.Present;
+
+        private void Awake()
+        {
+            tag = Tags.player;
+        }
     }
 }
