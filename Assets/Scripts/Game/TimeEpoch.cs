@@ -7,7 +7,7 @@ namespace Game
     [System.Flags]
     public enum TimeEpoch
     {
-        Past,
-        Present
+        Past = 1,
+        Present = 2
     }
 }
