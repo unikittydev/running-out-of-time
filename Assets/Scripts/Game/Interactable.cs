@@ -23,7 +23,7 @@ namespace Game
         [SerializeField]
         private UnityEvent onInteract;
 
-        private PlayerController player;
+        private Player player;
 
         private void Start()
         {
@@ -43,7 +43,7 @@ namespace Game
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag(Tags.player))
-                player = collision.GetComponent<PlayerController>();
+                player = collision.GetComponent<Player>();
         }
 
         private void OnTriggerExit2D(Collider2D collision)
