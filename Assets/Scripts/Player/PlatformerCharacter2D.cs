@@ -1,17 +1,24 @@
 using UnityEngine;
 
-#pragma warning disable 649
-namespace UnityStandardAssets._2D
+namespace Game
 {
     public class PlatformerCharacter2D : MonoBehaviour
     {
         private readonly Quaternion forwardDirection = Quaternion.identity;
         private readonly Quaternion backwardDirection = Quaternion.Euler(0f, 180f, 0f);
 
+        [SerializeField]
+        private float acceleration = 0.2f;
+        [SerializeField]
+        private float deceleration = 0.05f;
+        [SerializeField]
+        private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
+        [SerializeField]
+        private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
+        [SerializeField]
+        private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
 
-        [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
-        [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
-        [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
+        private float currVelocity;
 
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -19,11 +26,16 @@ namespace UnityStandardAssets._2D
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
+        private PlayerIKWalking ikWalker;
+
+        public bool isGrounded => m_Grounded;
+
         private void Awake()
         {
             // Setting up references.
             m_GroundCheck = transform.Find("GroundCheck");
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
+            ikWalker = GetComponent<PlayerIKWalking>();
         }
 
 
@@ -48,7 +60,11 @@ namespace UnityStandardAssets._2D
             if (m_Grounded || m_AirControl)
             {
                 // Move the character
-                m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
+
+                float target = move * m_MaxSpeed;
+                float velocity = target;
+                //float velocity = Mathf.SmoothDamp(m_Rigidbody2D.velocity.x, target, ref currVelocity, Mathf.Abs(move) * acceleration + (1f - Mathf.Abs(move)) * deceleration, m_MaxSpeed, Time.fixedDeltaTime);
+                m_Rigidbody2D.velocity = new Vector2(velocity, m_Rigidbody2D.velocity.y);
 
                 if (move > 0 && !m_FacingRight)
                     Flip();
@@ -64,6 +80,7 @@ namespace UnityStandardAssets._2D
             m_FacingRight = !m_FacingRight;
 
             transform.rotation = m_FacingRight ? forwardDirection : backwardDirection;
+            ikWalker?.Flip();
         }
     }
 }

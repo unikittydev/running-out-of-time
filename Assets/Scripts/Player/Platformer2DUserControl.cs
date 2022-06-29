@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UnityStandardAssets._2D
+namespace Game
 {
     [RequireComponent(typeof (PlatformerCharacter2D))]
     public class Platformer2DUserControl : MonoBehaviour
