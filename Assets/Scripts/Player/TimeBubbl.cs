@@ -6,8 +6,7 @@ namespace Game
     /// <summary>
     /// Девайс для путешествия во времени.
     /// </summary>
-    [RequireComponent(typeof(CircleCollider2D))]
-    public class TimeBubble : MonoBehaviour
+    public class TimeBubbl : MonoBehaviour
     {
         [SerializeField]
         private float duration;
@@ -20,23 +19,21 @@ namespace Game
         private Player player;
 
         private SpriteMask mask;
-        private CircleCollider2D trigger;
 
         [SerializeField]
         private LayerMask present;
         [SerializeField]
         private LayerMask past;
-
+            
         private void Awake()
         {
             transform.localScale = Vector3.one * radius;
             mask = GetComponent<SpriteMask>();
-            trigger = GetComponent<CircleCollider2D>();
         }
 
         private IEnumerator CreateBubble()
         {
-            mask.enabled = trigger.enabled = true;
+            mask.enabled = true;
             player.gameObject.layer = Utils.GetLayerId(past);
             player.playerEpoch = TimeEpoch.Past;
 
@@ -50,7 +47,7 @@ namespace Game
 
             player.gameObject.layer = Utils.GetLayerId(present);
             player.playerEpoch = TimeEpoch.Present;
-            mask.enabled = trigger.enabled = false;
+            mask.enabled = false;
         }
 
         private void Update()
