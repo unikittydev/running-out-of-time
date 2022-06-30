@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1633213258172534734}
   - component: {fileID: 1633213258172534733}
+  - component: {fileID: 8035630542670613821}
   m_Layer: 0
   m_Name: SwitchableTimeBubble
   m_TagString: Untagged
@@ -56,6 +57,22 @@ MonoBehaviour:
   _radius: 3
   _mask: {fileID: 1633213258988910239}
   _imageBG: {fileID: 1633213258873600520}
+--- !u!58 &8035630542670613821
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633213258172534732}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1633213258873600565
 GameObject:
   m_ObjectHideFlags: 0
