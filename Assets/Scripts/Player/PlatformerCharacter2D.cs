@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Game
 {
     public class PlatformerCharacter2D : MonoBehaviour
     {
+
         private readonly Quaternion forwardDirection = Quaternion.identity;
         private readonly Quaternion backwardDirection = Quaternion.Euler(0f, 180f, 0f);
 
@@ -25,8 +27,11 @@ namespace Game
         private bool m_Grounded;            // Whether or not the player is grounded.          // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+        private bool movingByScript;
 
         private PlayerIKWalking ikWalker;
+
+        private Platformer2DUserControl control;
 
         public bool isGrounded => m_Grounded;
 
@@ -36,8 +41,8 @@ namespace Game
             m_GroundCheck = transform.Find("GroundCheck");
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
             ikWalker = GetComponent<PlayerIKWalking>();
+            control = GetComponent<Platformer2DUserControl>();
         }
-
 
         private void FixedUpdate()
         {
@@ -51,10 +56,13 @@ namespace Game
                 if (colliders[i].gameObject != gameObject)
                     m_Grounded = true;
             }
+
+            if (!movingByScript)
+                Move(control.h);
         }
 
 
-        public void Move(float move)
+        private void Move(float move)
         {
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
@@ -66,13 +74,49 @@ namespace Game
                 //float velocity = Mathf.SmoothDamp(m_Rigidbody2D.velocity.x, target, ref currVelocity, Mathf.Abs(move) * acceleration + (1f - Mathf.Abs(move)) * deceleration, m_MaxSpeed, Time.fixedDeltaTime);
                 m_Rigidbody2D.velocity = new Vector2(velocity, m_Rigidbody2D.velocity.y);
 
-                if (move > 0 && !m_FacingRight)
-                    Flip();
-                else if (move < 0 && m_FacingRight)
-                    Flip();
+                TryFlip(move);
             }
         }
 
+        public void WalkTo(Transform target)
+        {
+            WalkTo(target.position);
+        }
+
+        public void WalkTo(Vector3 position)
+        {
+            if (!movingByScript)
+                StartCoroutine(Walk(position));
+        }
+
+        private IEnumerator Walk(Vector3 to)
+        {
+            movingByScript = true;
+
+            float eps = .1f;
+            Vector3 from = transform.position;
+
+            while (Mathf.Abs(transform.position.x - to.x) > eps * eps)
+            {
+                float move = transform.position.x < to.x ? 1f : -1f;
+
+                TryFlip(move);
+
+                float velocity = move * Mathf.Min(m_MaxSpeed, Mathf.Abs(from.x - to.x));
+                m_Rigidbody2D.velocity = new Vector2(velocity, m_Rigidbody2D.velocity.y);
+                yield return new WaitForFixedUpdate();
+            }
+
+            movingByScript = false;
+        }
+
+        private void TryFlip(float move)
+        {
+            if (move > 0 && !m_FacingRight)
+                Flip();
+            else if (move < 0 && m_FacingRight)
+                Flip();
+        }
 
         private void Flip()
         {

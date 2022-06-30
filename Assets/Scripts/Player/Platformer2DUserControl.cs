@@ -5,18 +5,11 @@ namespace Game
     [RequireComponent(typeof (PlatformerCharacter2D))]
     public class Platformer2DUserControl : MonoBehaviour
     {
-        private PlatformerCharacter2D m_Character;
+        public float h { get; private set; }
 
-        private void Awake()
+        private void Update()
         {
-            m_Character = GetComponent<PlatformerCharacter2D>();
-        }
-
-        private void FixedUpdate()
-        {
-            float h = Input.GetAxis("Horizontal");
-            // Pass all parameters to the character control script.
-            m_Character.Move(h);
+            h = Input.GetAxis("Horizontal");
         }
     }
 }
