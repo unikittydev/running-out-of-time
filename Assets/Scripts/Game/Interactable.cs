@@ -32,7 +32,7 @@ namespace Game
 
         private void Update()
         {
-            if (player != null && interactWhen.HasFlag(player.playerEpoch) && (startAutomatically || Input.GetKeyDown(Hotkeys.interact)))
+            if (player != null && interactWhen.HasFlag(player.playerEpoch) && (startAutomatically || Input.GetKeyDown(Hotkeys.INTERACT)))
             {
                 onInteract.Invoke();
                 if (destroyOnInteract)
