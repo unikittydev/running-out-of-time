@@ -7,8 +7,12 @@ public class Trigger : MonoBehaviour
 	public UnityEvent OnEnter;
 	public UnityEvent OnExit;
 
-	[SerializeField] private string _targetTag;  
+	public bool Triggered => _triggered;
 
+	[SerializeField] public string TargetTag;
+
+	private bool _triggered;
+	
 	private void Awake()
 	{
 		GetComponent<BoxCollider2D>().isTrigger = true;
@@ -16,18 +20,28 @@ public class Trigger : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.gameObject.tag == _targetTag)
+		if (collision.CompareTag(TargetTag))
 		{
-			Debug.Log("Triggered " + name);
 			OnEnter.Invoke();
+			_triggered = true;
 		}
 	}
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		if (collision.gameObject.tag == _targetTag)
+		if (collision.CompareTag(TargetTag))
 		{
-			Debug.Log("Ontriggered " + name);
 			OnExit.Invoke();
+			_triggered = false;
+		}
+	}
+	private void OnTriggerStay2D(Collider2D collision)
+	{
+		if (_triggered) return;
+
+		if (collision.CompareTag(TargetTag))
+		{
+			OnEnter.Invoke();
+			_triggered = true;
 		}
 	}
 }
