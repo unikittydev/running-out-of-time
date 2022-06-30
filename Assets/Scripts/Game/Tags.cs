@@ -1,11 +1,5 @@
 
-namespace Game
+public static class Tags
 {
-    /// <summary>
-    /// Тэги юнити.
-    /// </summary>
-    public static class Tags
-    {
-        public const string player = "Player";
-    }
+    public const string player = "Player";
 }

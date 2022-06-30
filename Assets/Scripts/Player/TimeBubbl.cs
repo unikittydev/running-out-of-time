@@ -52,7 +52,7 @@ namespace Game
 
         private void Update()
         {
-            if (Input.GetKey(Hotkeys.timeTravel) && _counter == 0f)
+            if (Input.GetKey(Hotkeys.BUBBLE_ACTIVATE) && _counter == 0f)
                 StartCoroutine(CreateBubble());
         }
 

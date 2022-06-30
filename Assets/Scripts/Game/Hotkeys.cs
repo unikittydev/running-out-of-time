@@ -1,14 +1,8 @@
 using UnityEngine;
 
-namespace Game
+public static class Hotkeys
 {
-    /// <summary>
-    /// Горячие клавиши управления.
-    /// </summary>
-    public static class Hotkeys
-    {
-        public static KeyCode pause = KeyCode.Escape;
-        public static KeyCode timeTravel = KeyCode.Space;
-        public static KeyCode interact = KeyCode.E;
-    }
+    public const KeyCode PAUSE = KeyCode.Escape;
+    public const KeyCode BUBBLE_ACTIVATE = KeyCode.Space;
+    public const KeyCode INTERACT = KeyCode.E;
 }

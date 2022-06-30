@@ -22,10 +22,12 @@ public abstract class TimeBubble : MonoBehaviour
 
 	private void Awake()
 	{
-        Init();
         _mask.gameObject.SetActive(false);
         _imageBG.gameObject.SetActive(false);
-
+    }
+	private void Start()
+    {
+        Init();
     }
 
 	protected IEnumerator Activation(float timeIn = 0.2f)
@@ -40,6 +42,7 @@ public abstract class TimeBubble : MonoBehaviour
             yield return null;
 		}
         SetScale(_radius * 2);
+        ManageTimeObjects(TimeEpoch.Past);
 	}
 
     protected IEnumerator Deactivation(float timeOut = 0.2f)
@@ -54,6 +57,7 @@ public abstract class TimeBubble : MonoBehaviour
         _mask.gameObject.SetActive(false);
         _imageBG.gameObject.SetActive(false);
         IsActive = false;
+        ManageTimeObjects(TimeEpoch.Present);
     }
 
     protected IEnumerator Reload()
@@ -64,6 +68,13 @@ public abstract class TimeBubble : MonoBehaviour
 
     protected abstract void Init();
 
+    private void ManageTimeObjects(TimeEpoch epoch)
+	{
+        var objects = InteractableTimeObjectsPool.GetClosestObjects(transform.position, _radius);
+        foreach (var obj in objects)
+            obj.GoToEpoch(epoch);
+	}
+
     private void SetScale(float scale) =>
         transform.localScale = new Vector3(scale, scale, 1);
 
@@ -72,7 +83,12 @@ public abstract class TimeBubble : MonoBehaviour
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, _radius);
     }
-	private void OnValidate() =>
+	private void OnValidate()
+    {
         SetScale(_radius * 2);
+        var collider = GetComponent<CircleCollider2D>();
+        collider.isTrigger = true;
+        collider.radius = 0.5f;
+    }
     
 }
