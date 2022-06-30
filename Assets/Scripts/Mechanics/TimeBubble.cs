@@ -22,9 +22,12 @@ public abstract class TimeBubble : MonoBehaviour
 
 	private void Awake()
 	{
-        Init();
         _mask.gameObject.SetActive(false);
         _imageBG.gameObject.SetActive(false);
+    }
+	private void Start()
+    {
+        Init();
     }
 
 	protected IEnumerator Activation(float timeIn = 0.2f)
