@@ -25,6 +25,8 @@ namespace Game
         private Transform rightFoot;
         [SerializeField]
         private AnimationCurve walkCurve;
+        [SerializeField]
+        private Transform rayOrigin;
 
         private Vector3 leftStep;
         private Vector3 rightStep;
@@ -99,7 +101,7 @@ namespace Game
                 if (dotRight <= 0f && (tr.position - rightStep).sqrMagnitude > 2 * stepDistance * stepDistance)
                 {
                     Vector3 from = rightStep;
-                    rightStep = TryFindFootPosition(tr.position + tr.right * (stepDistance + stepOffset));
+                    rightStep = TryFindFootPosition(rayOrigin.position + tr.right * (stepDistance + stepOffset));
                     leftStepIsLast = false;
                     StartCoroutine(ChangeStep(from, rightStep, rightFoot, leftHand));
                 }
@@ -109,7 +111,7 @@ namespace Game
                 if (dotLeft <= 0f && (tr.position - leftStep).sqrMagnitude > 2 * stepDistance * stepDistance)
                 {
                     Vector3 from = leftStep;
-                    leftStep = TryFindFootPosition(tr.position + tr.right * (stepDistance + stepOffset));
+                    leftStep = TryFindFootPosition(rayOrigin.position + tr.right * (stepDistance + stepOffset));
                     leftFoot.position = leftStep;
                     leftStepIsLast = true;
                     StartCoroutine(ChangeStep(from, leftStep, leftFoot, rightHand));
