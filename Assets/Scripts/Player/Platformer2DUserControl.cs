@@ -7,9 +7,14 @@ namespace Game
     {
         public float h { get; private set; }
 
+        [SerializeField]
+        private ExecutableTimeBubble timeBubble;
+
         private void Update()
         {
             h = Input.GetAxis("Horizontal");
+            if (Input.GetKey(Hotkeys.BUBBLE_ACTIVATE))
+                timeBubble.Execute();
         }
     }
 }

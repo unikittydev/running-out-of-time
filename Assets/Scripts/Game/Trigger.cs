@@ -16,6 +16,7 @@ public class Trigger : MonoBehaviour
 	private void Awake()
 	{
 		GetComponent<BoxCollider2D>().isTrigger = true;
+		TargetTag = Tags.player;
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
