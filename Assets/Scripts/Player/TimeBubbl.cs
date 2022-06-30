@@ -27,7 +27,7 @@ namespace Game
             
         private void Awake()
         {
-            transform.localScale = Vector3.one * radius;
+            transform.localScale = Vector3.one * 2f * radius;
             mask = GetComponent<SpriteMask>();
         }
 
@@ -54,6 +54,12 @@ namespace Game
         {
             if (Input.GetKey(Hotkeys.BUBBLE_ACTIVATE) && _counter == 0f)
                 StartCoroutine(CreateBubble());
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireSphere(transform.position, radius);
         }
     }
 }
