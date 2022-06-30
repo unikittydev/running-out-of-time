@@ -310,7 +310,7 @@ Transform:
   m_GameObject: {fileID: 4707867315574251620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.07, y: 0.31, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4707867314417258384}
@@ -337,13 +337,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _cooldown: 0.5
-  _radius: 2
+  _radius: 4
   _mask: {fileID: 4707867315708139137}
   _imageBG: {fileID: 4707867314645841124}
   _showTimer: 1
   _loop: 0
   _activeOnAwake: 0
-  _duration: 1
+  _duration: 5
   _durationRandomizePercent: 0.5
   _timerImage: {fileID: 4707867314521678237}
 --- !u!58 &8308213349247405199
