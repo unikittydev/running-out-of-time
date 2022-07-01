@@ -2279,7 +2279,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000cd618f71
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -3501,17 +3501,25 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4707867314417258387, guid: f574cfb41677d4648a919a2bd0899fac, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 413986311}
     - target: {fileID: 4707867315574251620, guid: f574cfb41677d4648a919a2bd0899fac, type: 3}
       propertyPath: m_Name
       value: ExecutableTimeBubble (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4707867315574251620, guid: f574cfb41677d4648a919a2bd0899fac, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4707867315574251622, guid: f574cfb41677d4648a919a2bd0899fac, type: 3}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707867315574251622, guid: f574cfb41677d4648a919a2bd0899fac, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707867315574251622, guid: f574cfb41677d4648a919a2bd0899fac, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4707867315574251622, guid: f574cfb41677d4648a919a2bd0899fac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3552,6 +3560,10 @@ PrefabInstance:
     - target: {fileID: 4707867315574251622, guid: f574cfb41677d4648a919a2bd0899fac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707867315574251623, guid: f574cfb41677d4648a919a2bd0899fac, type: 3}
+      propertyPath: _radius
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
