@@ -86,9 +86,6 @@ public abstract class TimeBubble : MonoBehaviour
 	private void OnValidate()
     {
         SetScale(_radius * 2);
-        var collider = GetComponent<CircleCollider2D>();
-        collider.isTrigger = true;
-        collider.radius = 0.5f;
     }
     
 }
