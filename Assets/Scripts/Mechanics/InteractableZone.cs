@@ -46,6 +46,7 @@ public class InteractableZone : MonoBehaviour
 		if (_trigger.Triggered)
 			OnAvailable?.Invoke();
 	}
+
 	private void OnDisable()
 	{
 		_trigger.OnEnter.RemoveAllListeners();
@@ -53,6 +54,7 @@ public class InteractableZone : MonoBehaviour
 		if (_available)
 			OnUnavailable?.Invoke();
 	}
+
 	private void OnDestroy()
 	{
 		_trigger.OnEnter.RemoveAllListeners();

@@ -1,4 +1,3 @@
-using UnityEngine;
 using UnityEngine.Events;
 
 public class InteractableTimeObject : TimeObject
@@ -18,12 +17,14 @@ public class InteractableTimeObject : TimeObject
 		if (_available)
 			OnAvailable?.Invoke();
 	}
+	
 	private void OnDisable()
 	{
 		if (_available)
 			OnUnavailable?.Invoke();
 		_available = false;
 	}
+
 	public void GoToEpoch(TimeEpoch epoch)
 	{
 		if (_time.HasFlag(epoch) && !_available)

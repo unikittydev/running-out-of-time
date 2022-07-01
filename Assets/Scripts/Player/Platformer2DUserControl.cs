@@ -5,7 +5,12 @@ namespace Game
     [RequireComponent(typeof (PlatformerCharacter2D))]
     public class Platformer2DUserControl : MonoBehaviour
     {
-        public float h { get; private set; }
+        private float _h;
+        public float h
+        {
+            get => _h;
+            set => _h = Mathf.Clamp(value, -1f, 1f);
+        }
 
         [SerializeField]
         private ExecutableTimeBubble timeBubble;
