@@ -18,10 +18,10 @@ namespace Game
         private IEnumerator ExecuteSequence()
         {
             foreach (var action in sequence)
-                //if (action.waitForCompletion)
+                if (action.waitForCompletion)
                     yield return StartCoroutine(action.Execute());
-                //else
-                    //StartCoroutine(action.Execute());
+                else
+                    StartCoroutine(action.Execute());
         }
     }
 }
