@@ -12,14 +12,19 @@ namespace Game
 
         public override IEnumerator Execute()
         {
-            float eps = .1f;
-            Vector3 to = target.position;
+            Transform playerTr = control.transform;
 
-            while (Mathf.Abs(transform.position.x - to.x) > eps * eps)
+            control.enabled = false;
+            float eps = .1f;
+            float from = playerTr.position.x;
+            float to = target.position.x;
+
+            while (Mathf.Abs(playerTr.position.x - to) > eps * eps)
             {
-                control.h = (transform.position.x < to.x ? 1f : -1f) * Mathf.Min(1f, Mathf.Abs(transform.position.x - to.x));
+                control.h = playerTr.position.x < to ? 1f : -1f;
                 yield return new WaitForFixedUpdate();
             }
+            control.enabled = true;
         }
     }
 }

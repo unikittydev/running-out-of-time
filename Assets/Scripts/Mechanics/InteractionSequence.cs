@@ -12,13 +12,14 @@ namespace Game
 
         public void Execute()
         {
+            print("Start!");
             coroutine = StartCoroutine(ExecuteSequence());
         }
 
         private IEnumerator ExecuteSequence()
         {
             foreach (var action in sequence)
-                yield return action.Execute();
+                yield return StartCoroutine(action.Execute());
         }
     }
 }
