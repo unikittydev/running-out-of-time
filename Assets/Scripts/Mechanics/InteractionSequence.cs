@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Game
 {
@@ -12,14 +11,17 @@ namespace Game
 
         public void Execute()
         {
-            print("Start!");
+            Debug.Log("Playing: " + name, this);
             coroutine = StartCoroutine(ExecuteSequence());
         }
 
         private IEnumerator ExecuteSequence()
         {
             foreach (var action in sequence)
-                yield return StartCoroutine(action.Execute());
+                //if (action.waitForCompletion)
+                    yield return StartCoroutine(action.Execute());
+                //else
+                    //StartCoroutine(action.Execute());
         }
     }
 }

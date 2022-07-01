@@ -9,9 +9,12 @@ namespace Game
         private Platformer2DUserControl control;
         [SerializeField]
         private Transform target;
+        [SerializeField]
+        private bool releaseControlOnEnd = true;
 
         public override IEnumerator Execute()
         {
+            print("Walk started");
             Transform playerTr = control.transform;
 
             control.enabled = false;
@@ -22,9 +25,11 @@ namespace Game
             while (Mathf.Abs(playerTr.position.x - to) > eps * eps)
             {
                 control.h = playerTr.position.x < to ? 1f : -1f;
+                print(Mathf.Abs(playerTr.position.x - to));
                 yield return new WaitForFixedUpdate();
             }
-            control.enabled = true;
+            control.enabled = releaseControlOnEnd;
+            print("Walk ended");
         }
     }
 }
