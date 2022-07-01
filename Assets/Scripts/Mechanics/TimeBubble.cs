@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 public abstract class TimeBubble : MonoBehaviour
 {
@@ -15,15 +14,14 @@ public abstract class TimeBubble : MonoBehaviour
 
     [Space]
     [Space]
-    [SerializeField] protected SpriteMask _mask;
-    [SerializeField] private Image _imageBG;
+    [SerializeField] private GameObject[] _bubbleObjects;
 
     protected bool _interactable = true;
 
 	private void Awake()
-	{
-        _mask.gameObject.SetActive(false);
-        _imageBG.gameObject.SetActive(false);
+    {
+        foreach (var g in _bubbleObjects)
+            g.SetActive(false);
     }
 	private void Start()
     {
@@ -32,8 +30,8 @@ public abstract class TimeBubble : MonoBehaviour
 
 	protected IEnumerator Activation(float timeIn = 0.2f)
     {
-        _mask.gameObject.SetActive(true);
-        _imageBG.gameObject.SetActive(true);
+        foreach (var g in _bubbleObjects)
+            g.SetActive(true);
         IsActive = true;
         SetScale(0);
         for (float t = 0f; t < timeIn; t += Time.deltaTime)
@@ -54,8 +52,8 @@ public abstract class TimeBubble : MonoBehaviour
             yield return null;
         }
         SetScale(_radius * 2);
-        _mask.gameObject.SetActive(false);
-        _imageBG.gameObject.SetActive(false);
+        foreach (var g in _bubbleObjects)
+            g.SetActive(false);
         IsActive = false;
         ManageTimeObjects(TimeEpoch.Present);
     }
