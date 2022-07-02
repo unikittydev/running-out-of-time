@@ -6,7 +6,7 @@ namespace Game
     public class ReleaseControlAction : SequenceAction
     {
         [SerializeField]
-        private Platformer2DUserControl control;
+        private PlayerController control;
 
         public override IEnumerator Execute()
         {

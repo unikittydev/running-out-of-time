@@ -6,7 +6,7 @@ namespace Game
     public class WalkToAction : SequenceAction
     {
         [SerializeField]
-        private Platformer2DUserControl control;
+        private PlayerController control;
         [SerializeField]
         private Transform target;
         [SerializeField]
@@ -29,6 +29,7 @@ namespace Game
                 yield return new WaitForFixedUpdate();
             }
             control.enabled = releaseControlOnEnd;
+            control.h = 0f;
             print("Walk ended");
         }
     }

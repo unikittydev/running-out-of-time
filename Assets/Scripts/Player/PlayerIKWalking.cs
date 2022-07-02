@@ -59,12 +59,12 @@ namespace Game
 
         private RaycastHit2D[] hits = new RaycastHit2D[2];
 
-        private PlatformerCharacter2D character;
+        private PlayerCharacter2D character;
 
         private void Awake()
         {
             tr = transform;
-            character = GetComponent<PlatformerCharacter2D>();
+            character = GetComponent<PlayerCharacter2D>();
         }
 
         private void Start()
