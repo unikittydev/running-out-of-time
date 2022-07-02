@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 namespace Game
@@ -21,6 +20,7 @@ namespace Game
         private bool m_Grounded;            // Whether or not the player is grounded.          // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+        public bool facingRight => m_FacingRight;
 
         private PlayerIKWalking ikWalker;
 

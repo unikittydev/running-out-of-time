@@ -100,7 +100,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Plant
+  m_Name: PH_Plant
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -253,7 +253,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Touch
+  m_Name: PH_Touch
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -343,7 +343,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5d15bf54ca402a647b5a79b563407406, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5b30d507f9cbc55479a4063ddcaeb729, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
