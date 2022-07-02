@@ -42,13 +42,13 @@ namespace Game
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag(Tags.player))
+            if (collision.CompareTag(Tags.PLAYER))
                 player = collision.GetComponent<Player>();
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.CompareTag(Tags.player))
+            if (collision.CompareTag(Tags.PLAYER))
                 player = null;
         }
 

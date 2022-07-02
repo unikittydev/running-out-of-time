@@ -147,7 +147,7 @@ namespace Game
             int hitCount = Physics2D.RaycastNonAlloc(position, Vector2.down, hits, maxRayDistance, ground);
             for (int i = 0; i < hitCount; i++)
             {
-                if (hits[i].collider.CompareTag(Tags.player))
+                if (hits[i].collider.CompareTag(Tags.PLAYER))
                     continue;
 
                 return hits[i].point;

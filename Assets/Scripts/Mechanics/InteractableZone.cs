@@ -17,7 +17,7 @@ public class InteractableZone : MonoBehaviour
 	private void Awake()
 	{
 		_trigger = GetComponent<Trigger>();
-		_trigger.TargetTag = Tags.player;
+		_trigger.TargetTag = Tags.PLAYER;
 	}
 
 	private void Update()

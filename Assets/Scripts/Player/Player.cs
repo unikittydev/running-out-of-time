@@ -11,7 +11,7 @@ namespace Game
 
         private void Awake()
         {
-            tag = Tags.player;
+            tag = Tags.PLAYER;
         }
     }
 }
