@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace Game
 {
-    [RequireComponent(typeof (PlatformerCharacter2D))]
-    public class Platformer2DUserControl : MonoBehaviour
+    [RequireComponent(typeof (PlayerCharacter2D))]
+    public class PlayerController : MonoBehaviour
     {
         private float _h;
         public float h

@@ -6,21 +6,21 @@ namespace Game
     public class PlayAnimationAction : SequenceAction
     {
         [SerializeField]
-        private AnimationClip clip;
-
+        private string flagName;
         [SerializeField]
         private Animator animator;
+        [SerializeField]
+        private bool applyRootMotion = true;
 
         public override IEnumerator Execute()
         {
-            print("Anim started");
-            bool animEnabled = animator.enabled;
-            animator.enabled = true;
-            animator.Play(clip.name);
-            yield return new WaitForSeconds(clip.length);
-            animator.enabled = animEnabled;
+            animator.applyRootMotion = applyRootMotion;
+            animator.SetBool(flagName, true);
 
-            print("Anim ended");
+            while (animator.GetBool(flagName))
+                yield return null;
+
+            animator.applyRootMotion = true;
         }
     }
 }

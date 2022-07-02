@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class PlatformerCharacter2D : MonoBehaviour
+    public class PlayerCharacter2D : MonoBehaviour
     {
 
         private readonly Quaternion forwardDirection = Quaternion.identity;
@@ -20,11 +20,14 @@ namespace Game
         private bool m_Grounded;            // Whether or not the player is grounded.          // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+
         public bool facingRight => m_FacingRight;
 
         private PlayerIKWalking ikWalker;
 
-        private Platformer2DUserControl control;
+        private PlayerController control;
+
+        private Animator animator;
 
         public bool isGrounded => m_Grounded;
 
@@ -34,7 +37,8 @@ namespace Game
             m_GroundCheck = transform.Find("GroundCheck");
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
             ikWalker = GetComponent<PlayerIKWalking>();
-            control = GetComponent<Platformer2DUserControl>();
+            control = GetComponent<PlayerController>();
+            animator = GetComponent<Animator>();
         }
 
         private void FixedUpdate()
@@ -56,6 +60,12 @@ namespace Game
 
         private void Move(float move)
         {
+            animator.SetBool("Ground", m_Grounded);
+            if (m_Grounded)
+                animator.SetFloat("Walk", Mathf.Abs(move));
+            else
+                animator.SetFloat("Walk", 0f);
+
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
             {
