@@ -5100,6 +5100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4707867315574251622}
   - component: {fileID: 4707867315574251623}
+  - component: {fileID: 8308213349247405199}
   m_Layer: 0
   m_Name: ExecutableTimeBubble
   m_TagString: Untagged
@@ -5150,13 +5151,28 @@ MonoBehaviour:
   - {fileID: 2933909513898786082}
   - {fileID: 4707867315708139143}
   - {fileID: 1806054709}
-  _particles: {fileID: 0}
   _showTimer: 1
   _loop: 1
   _activeOnAwake: 1
   _duration: 3
   _durationRandomizePercent: 0
   _timerImage: {fileID: 4707867314521678237}
+--- !u!58 &8308213349247405199
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4707867315574251620}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &4707867315708139143
 GameObject:
   m_ObjectHideFlags: 0

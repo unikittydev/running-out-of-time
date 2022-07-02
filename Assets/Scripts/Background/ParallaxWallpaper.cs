@@ -18,7 +18,7 @@ namespace Game
         
         private void Awake()
         {
-            player = GameObject.FindGameObjectWithTag(Tags.player).transform;
+            player = GameObject.FindGameObjectWithTag(Tags.PLAYER).transform;
             duplicate = Instantiate(image, image.transform.parent);
             SetPositions(image.rectTransform.anchoredPosition3D);
         }

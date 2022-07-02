@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(CircleCollider2D))]
 public abstract class TimeBubble : MonoBehaviour
 {
     public UnityEvent OnActivate;
@@ -9,6 +10,7 @@ public abstract class TimeBubble : MonoBehaviour
 
     public bool IsActive { get; private set; }
 
+    [SerializeField] private GameObject[] _forChangeLayer;
     [SerializeField] protected float _cooldown = 1f;
     [SerializeField] protected float _radius = 5;
 
@@ -18,11 +20,12 @@ public abstract class TimeBubble : MonoBehaviour
 
     protected bool _interactable = true;
 
-	private void Awake()
+    private void Awake()
     {
         foreach (var g in _bubbleObjects)
             g.SetActive(false);
     }
+
 	private void Start()
     {
         Init();
@@ -33,6 +36,8 @@ public abstract class TimeBubble : MonoBehaviour
         foreach (var g in _bubbleObjects)
             g.SetActive(true);
         IsActive = true;
+        foreach (var g in _forChangeLayer)
+            g.layer = Utils.PAST_LAYER;
         SetScale(0);
         for (float t = 0f; t < timeIn; t += Time.deltaTime)
 		{
@@ -40,7 +45,6 @@ public abstract class TimeBubble : MonoBehaviour
             yield return null;
 		}
         SetScale(_radius * 2);
-        ManageTimeObjects(TimeEpoch.Past);
 	}
 
     protected IEnumerator Deactivation(float timeOut = 0.2f)
@@ -55,7 +59,8 @@ public abstract class TimeBubble : MonoBehaviour
         foreach (var g in _bubbleObjects)
             g.SetActive(false);
         IsActive = false;
-        ManageTimeObjects(TimeEpoch.Present);
+        foreach (var g in _forChangeLayer)
+            g.layer = Utils.PRESENT_LAYER;
     }
 
     protected IEnumerator Reload()
@@ -65,13 +70,6 @@ public abstract class TimeBubble : MonoBehaviour
 	}
 
     protected abstract void Init();
-
-    private void ManageTimeObjects(TimeEpoch epoch)
-	{
-        var objects = InteractableTimeObjectsPool.GetClosestObjects(transform.position, _radius);
-        foreach (var obj in objects)
-            obj.GoToEpoch(epoch);
-	}
 
     private void SetScale(float scale) =>
         transform.localScale = new Vector3(scale, scale, 1);
@@ -84,6 +82,18 @@ public abstract class TimeBubble : MonoBehaviour
 	private void OnValidate()
     {
         SetScale(_radius * 2);
+        GetComponent<CircleCollider2D>().isTrigger = true;
     }
-    
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+        if (IsActive)
+            if (collision.CompareTag(Tags.PLAYER))
+                collision.gameObject.layer = Utils.PAST_LAYER;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag(Tags.PLAYER))
+            collision.gameObject.layer = Utils.PRESENT_LAYER;
+    }
 }
