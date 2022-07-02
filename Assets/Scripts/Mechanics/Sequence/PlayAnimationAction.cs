@@ -11,18 +11,16 @@ namespace Game
         [SerializeField]
         private Animator animator;
 
-        private void Awake()
-        {
-
-        }
-
         public override IEnumerator Execute()
         {
+            print("Anim started");
+            bool animEnabled = animator.enabled;
             animator.enabled = true;
             animator.Play(clip.name);
-            print(clip.name);
             yield return new WaitForSeconds(clip.length);
-            animator.enabled = false;
+            animator.enabled = animEnabled;
+
+            print("Anim ended");
         }
     }
 }
