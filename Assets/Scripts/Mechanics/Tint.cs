@@ -18,11 +18,13 @@ public class Tint : MonoBehaviour
     }
 	public void ShowTint()
     {
-        gameObject.SetActive(false);
+        _buttonImage.gameObject.SetActive(true);
+        _tintText.gameObject.SetActive(true);
     }
     public void HideTint()
     {
-        gameObject.SetActive(true);
+        _buttonImage.gameObject.SetActive(false);
+        _tintText.gameObject.SetActive(false);
     }
 
 	private void OnValidate()

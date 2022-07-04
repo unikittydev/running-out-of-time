@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: DistortionLayer
+  - name: DoorsLayer
     uniqueID: 1905222093
+    locked: 0
+  - name: Bubble
+    uniqueID: 1234424977
+    locked: 0
+  - name: UI
+    uniqueID: 2027483389
     locked: 0

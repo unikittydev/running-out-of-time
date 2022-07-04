@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Lift : MonoBehaviour
+public class DoubleDoor : MonoBehaviour
 {
 	public UnityEvent OnOpen;
 	public UnityEvent OnClose;
@@ -27,6 +26,15 @@ public class Lift : MonoBehaviour
 		StartCoroutine(Closing());
 	}
 
+	public void OpenWithoutNotify()
+	{
+		StartCoroutine(OpeningWithoutNotify());
+	}
+	public void CloseWithoutNotify()
+	{
+		StartCoroutine(ClosingWithoutNotify());
+	}
+
 	private IEnumerator Opening()
 	{
 		StartCoroutine(DoorMove(_rightDoor, _rightDoorClosedPosition, _rightDoorOpenedPosition));
@@ -37,6 +45,17 @@ public class Lift : MonoBehaviour
 	private IEnumerator Closing()
 	{
 		OnClose?.Invoke();
+		StartCoroutine(DoorMove(_rightDoor, _rightDoorOpenedPosition, _rightDoorClosedPosition));
+		yield return DoorMove(_leftDoor, _leftDoorOpenedPosition, _leftDoorClosedPosition);
+	}
+	private IEnumerator OpeningWithoutNotify()
+	{
+		StartCoroutine(DoorMove(_rightDoor, _rightDoorClosedPosition, _rightDoorOpenedPosition));
+		yield return DoorMove(_leftDoor, _leftDoorClosedPosition, _leftDoorOpenedPosition);
+	}
+
+	private IEnumerator ClosingWithoutNotify()
+	{
 		StartCoroutine(DoorMove(_rightDoor, _rightDoorOpenedPosition, _rightDoorClosedPosition));
 		yield return DoorMove(_leftDoor, _leftDoorOpenedPosition, _leftDoorClosedPosition);
 	}
