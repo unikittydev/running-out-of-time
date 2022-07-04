@@ -54,6 +54,7 @@ MonoBehaviour:
   OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  _forChangeLayer: []
   _cooldown: 1
   _radius: 3
   _bubbleObjects:

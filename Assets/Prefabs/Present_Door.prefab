@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 59776321}
   - component: {fileID: 59776322}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Open Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0507be7f51b131446b9d0f1f9cff5cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <waitForCompletion>k__BackingField: 0
+  <waitForCompletion>k__BackingField: 1
   flagName: OpenDoor
   animator: {fileID: 0}
   applyRootMotion: 1
@@ -58,7 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 490713871}
   - component: {fileID: 490713872}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Open Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0507be7f51b131446b9d0f1f9cff5cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <waitForCompletion>k__BackingField: 0
+  <waitForCompletion>k__BackingField: 1
   flagName: OpenDoor
   animator: {fileID: 0}
   applyRootMotion: 1
@@ -106,7 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 604381145}
   - component: {fileID: 604381146}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Door Opening
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0507be7f51b131446b9d0f1f9cff5cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <waitForCompletion>k__BackingField: 1
+  <waitForCompletion>k__BackingField: 0
   flagName: Door_Opening
   animator: {fileID: 785749706}
   applyRootMotion: 0
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 616995214}
   - component: {fileID: 616995213}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Block Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 651573941}
   - component: {fileID: 651573940}
   - component: {fileID: 651573939}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Door_4_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,8 +338,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequence:
   - {fileID: 901950675}
-  - {fileID: 490713872}
   - {fileID: 604381146}
+  - {fileID: 490713872}
   - {fileID: 672972899}
   control: {fileID: 0}
   disableControlOnSequence: 1
@@ -354,7 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 672972898}
   - component: {fileID: 672972899}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Block Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 901950674}
   - component: {fileID: 901950675}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Turn Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 990666424}
   - component: {fileID: 990666423}
   - component: {fileID: 990666422}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Door_4_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,8 +585,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequence:
   - {fileID: 1583185308}
-  - {fileID: 59776322}
   - {fileID: 1245059494}
+  - {fileID: 59776322}
   - {fileID: 616995213}
   control: {fileID: 0}
   disableControlOnSequence: 1
@@ -601,7 +601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1245059493}
   - component: {fileID: 1245059494}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Door Opening
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0507be7f51b131446b9d0f1f9cff5cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <waitForCompletion>k__BackingField: 1
+  <waitForCompletion>k__BackingField: 0
   flagName: Door_Opening
   animator: {fileID: 785749706}
   applyRootMotion: 0
@@ -649,7 +649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1583185307}
   - component: {fileID: 1583185308}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Turn Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -697,7 +697,7 @@ GameObject:
   - component: {fileID: 529035940442390875}
   - component: {fileID: 529035940442390877}
   - component: {fileID: 529035940442390874}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,7 +769,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!61 &529035940442390874
 BoxCollider2D:
@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 529035941444609166}
   - component: {fileID: 785749706}
   - component: {fileID: 785749707}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Present_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

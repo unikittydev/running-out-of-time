@@ -5,11 +5,11 @@ public class SwitchableTimeBubble : TimeBubble
 {
     protected override void Init() { }
 
-    private void Update()
+    public void Execute()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-            StartCoroutine(Switch());
+        StartCoroutine(Switch());
     }
+
 
     private IEnumerator Switch()
 	{

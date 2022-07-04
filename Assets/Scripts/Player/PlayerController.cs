@@ -15,7 +15,7 @@ namespace Game
         public bool interact { get; set; }
 
         [SerializeField]
-        private ExecutableTimeBubble timeBubble;
+        private SwitchableTimeBubble timeBubble;
 
         private void Update()
         {
