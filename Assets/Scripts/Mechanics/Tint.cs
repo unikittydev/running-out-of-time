@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,15 +14,15 @@ public class Tint : MonoBehaviour
 
 	private void Awake()
 	{
-        //gameObject.SetActive(false);
-	}
+        HideTint();
+    }
 	public void ShowTint()
     {
-
+        gameObject.SetActive(false);
     }
     public void HideTint()
     {
-
+        gameObject.SetActive(true);
     }
 
 	private void OnValidate()
