@@ -12,6 +12,8 @@ namespace Game
             set => _h = Mathf.Clamp(value, -1f, 1f);
         }
 
+        public bool interact { get; set; }
+
         [SerializeField]
         private ExecutableTimeBubble timeBubble;
 
@@ -20,6 +22,12 @@ namespace Game
             h = Input.GetAxis("Horizontal");
             if (Input.GetKey(Hotkeys.BUBBLE_ACTIVATE))
                 timeBubble.Execute();
+            interact = Input.GetKeyDown(Hotkeys.INTERACT);
+        }
+
+        private void OnDisable()
+        {
+            interact = false;
         }
     }
 }

@@ -24,7 +24,7 @@ public class InteractableZone : MonoBehaviour
 	{
 		if (!_available) return;
 
-		if (Input.GetKeyDown(Hotkeys.INTERACT))
+		if (_trigger.control.interact)
 		{
 			OnInteract?.Invoke();
 			if (_destroyOnInteract)

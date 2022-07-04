@@ -1,3 +1,4 @@
+using Game;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +9,8 @@ public class Trigger : MonoBehaviour
 	public UnityEvent OnExit;
 
 	public bool Triggered => _triggered;
+
+	public PlayerController control;
 
 	[SerializeField] public string TargetTag;
 
@@ -23,6 +26,7 @@ public class Trigger : MonoBehaviour
 	{
 		if (collision.CompareTag(TargetTag))
 		{
+			control = collision.GetComponent<PlayerController>();
 			OnEnter.Invoke();
 			_triggered = true;
 		}
@@ -31,6 +35,7 @@ public class Trigger : MonoBehaviour
 	{
 		if (collision.CompareTag(TargetTag))
 		{
+			control = null;
 			OnExit.Invoke();
 			_triggered = false;
 		}
