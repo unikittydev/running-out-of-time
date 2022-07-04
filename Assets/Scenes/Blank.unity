@@ -29355,6 +29355,22 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.013079358
       objectReference: {fileID: 0}
+    - target: {fileID: 6515505764648334509, guid: 1f4230ee6fa92044cac3e5b48328047a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.153
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515505764648334509, guid: 1f4230ee6fa92044cac3e5b48328047a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.057
+      objectReference: {fileID: 0}
+    - target: {fileID: 7795537824771614384, guid: 1f4230ee6fa92044cac3e5b48328047a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.43553394
+      objectReference: {fileID: 0}
+    - target: {fileID: 7795537824771614384, guid: 1f4230ee6fa92044cac3e5b48328047a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03891527
+      objectReference: {fileID: 0}
     - target: {fileID: 7898933204171335422, guid: 1f4230ee6fa92044cac3e5b48328047a, type: 3}
       propertyPath: m_Camera
       value: 
@@ -29727,7 +29743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <waitForCompletion>k__BackingField: 1
-  flagName: Touch
+  flagName: PushTree
   animator: {fileID: 1954811574}
   applyRootMotion: 1
 --- !u!1 &1992707955
@@ -31380,8 +31396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0507be7f51b131446b9d0f1f9cff5cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <waitForCompletion>k__BackingField: 0
-  flagName: Touch
+  <waitForCompletion>k__BackingField: 1
+  flagName: PushTree
   animator: {fileID: 1954811574}
   applyRootMotion: 1
 --- !u!4 &2067612935
