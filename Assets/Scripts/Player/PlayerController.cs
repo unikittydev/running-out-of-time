@@ -17,8 +17,19 @@ namespace Game
         [SerializeField]
         private SwitchableTimeBubble timeBubble;
 
+        private bool _locked = false;
+
+
+        public void Lock() => _locked = true;
+        public void Unlock() => _locked = false;
+
         private void Update()
         {
+            interact = false;
+            h = 0;
+
+            if (_locked) return;
+
             h = Input.GetAxis("Horizontal");
             if (Input.GetKey(Hotkeys.BUBBLE_ACTIVATE))
                 timeBubble.Execute();
