@@ -12,7 +12,7 @@ public class TurnPlayerAction : SequenceAction
 
     public override IEnumerator Execute()
     {
-        float h = turnRight ? .01f : -0.01f;
+        float h = turnRight ? .01f : -.01f;
         control.h = h;
         yield return new WaitForFixedUpdate();
         control.h = 0f;

@@ -12,7 +12,9 @@ namespace Game
         [SerializeField]
         private PlayerController control;
         [SerializeField]
-        private bool disableOnSequence;
+        private bool disableControlOnSequence;
+        [SerializeField]
+        private bool disableSequenceOnEnd;
 
         public void Execute()
         {
@@ -21,13 +23,16 @@ namespace Game
 
         private IEnumerator ExecuteSequence()
         {
-            control.enabled = !disableOnSequence;
+            control.enabled = !disableControlOnSequence;
             foreach (var action in sequence)
                 if (action.waitForCompletion)
                     yield return StartCoroutine(action.Execute());
                 else
                     StartCoroutine(action.Execute());
             control.enabled = true;
+
+            if (disableSequenceOnEnd)
+                gameObject.SetActive(false);
         }
     }
 }
