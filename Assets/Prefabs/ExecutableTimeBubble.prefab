@@ -5125,7 +5125,7 @@ Transform:
   - {fileID: 4707867315708139136}
   - {fileID: 1806054710}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4707867315574251623
 MonoBehaviour:
@@ -5145,6 +5145,7 @@ MonoBehaviour:
   OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+  _forChangeLayer: []
   _cooldown: 1
   _radius: 5
   _bubbleObjects:
