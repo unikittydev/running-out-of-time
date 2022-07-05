@@ -33,6 +33,7 @@ public abstract class TimeBubble : MonoBehaviour
 
 	protected IEnumerator Activation(float timeIn = 0.2f)
     {
+        OnActivate?.Invoke();
         foreach (var g in _bubbleObjects)
             g.SetActive(true);
         IsActive = true;
@@ -49,6 +50,7 @@ public abstract class TimeBubble : MonoBehaviour
 
     protected IEnumerator Deactivation(float timeOut = 0.2f)
     {
+        OnDeactivate?.Invoke();
         SetScale(timeOut);
         for (float t = timeOut; t > 0f; t -= Time.deltaTime)
         {
