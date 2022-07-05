@@ -19,9 +19,21 @@ namespace Game
 
         private bool _locked = false;
 
+        [SerializeField]
+        private bool _canUseWatch;
+        public bool canUseWatch
+        {
+            get => _canUseWatch;
+            set => _canUseWatch = value;
+        }
 
         public void Lock() => _locked = true;
         public void Unlock() => _locked = false;
+
+        public void TeleportTo(Transform target)
+        {
+            transform.position = target.position;
+        }
 
         private void Update()
         {
@@ -31,7 +43,7 @@ namespace Game
             if (_locked) return;
 
             h = Input.GetAxis("Horizontal");
-            if (Input.GetKey(Hotkeys.BUBBLE_ACTIVATE))
+            if (canUseWatch && Input.GetKey(Hotkeys.BUBBLE_ACTIVATE))
                 timeBubble.Execute();
             interact = Input.GetKeyDown(Hotkeys.INTERACT);
         }

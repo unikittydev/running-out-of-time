@@ -7,8 +7,6 @@ public class TimeBubbleTick : MonoBehaviour
     public UnityEvent<int> onTick;
 
     [SerializeField]
-    private int secPerTick;
-    [SerializeField]
     private float period;
 
     private Coroutine tick;
@@ -33,7 +31,7 @@ public class TimeBubbleTick : MonoBehaviour
             if (counter >= 1f)
             {
                 counter %= 1;
-                onTick?.Invoke(secPerTick);
+                onTick?.Invoke(GameTimeValues.bubbleTickCost);
             }
             counter += Time.deltaTime / period;
             yield return null;

@@ -65,6 +65,12 @@ public class Timer : MonoBehaviour
             Play();
     }
 
+    private void Start()
+    {
+        if (TryGetComponent(out GameTimeValues c))
+            Time = c.startSeconds;
+    }
+
     public void Play()
 	{
         if (IsActive) return;

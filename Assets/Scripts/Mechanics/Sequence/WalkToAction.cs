@@ -30,7 +30,6 @@ namespace Game
             while (Mathf.Abs(playerTr.position.x - to) > eps * eps)
             {
                 control.h = (playerTr.position.x < to ? 1f : -1f) * Mathf.SmoothDamp(1f, 0f, ref vel, smoothTime, 1f, Time.deltaTime);
-                print(control.h);
                 yield return new WaitForFixedUpdate();
             }
             control.h = faceRightOnEnd ? 0.01f : -0.01f;
