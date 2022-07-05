@@ -12,6 +12,8 @@ public class TargetPingPong : MonoBehaviour
     private Transform to;
 
     [SerializeField]
+    private bool activeOnEnable;
+    [SerializeField]
     private float movingTime;
 
     private Coroutine move;
@@ -23,7 +25,8 @@ public class TargetPingPong : MonoBehaviour
 
     private void OnEnable()
     {
-        move = StartCoroutine(Move());
+        if (activeOnEnable)
+            Move();
     }
 
     private void OnDisable()
@@ -32,7 +35,17 @@ public class TargetPingPong : MonoBehaviour
             StopCoroutine(move);
     }
 
-    private IEnumerator Move()
+    public void Move()
+    {
+        move = StartCoroutine(Move_(true));
+    }
+
+    public void MoveOnce()
+    {
+        move = StartCoroutine(Move_(false));
+    }
+
+    private IEnumerator Move_(bool loop)
     {
         float counter;
         Transform from_ = from, to_ = to;
@@ -48,6 +61,8 @@ public class TargetPingPong : MonoBehaviour
                 counter += Time.deltaTime;
                 yield return null;
             }
+            if (!loop)
+                yield break;
             Swap(ref from_, ref to_);
         }
     }
