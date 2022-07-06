@@ -162,6 +162,8 @@ public class Timer : MonoBehaviour
             yield return null;
 		}
 
+        _changes.color = endColor;
+
         _changesCoroutine = null;
     }
 

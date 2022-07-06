@@ -20,7 +20,6 @@ public class TimeBubbleTick : MonoBehaviour
     {
         if (tick != null)
             StopCoroutine(tick);
-
     }
 
     private IEnumerator Tick()
