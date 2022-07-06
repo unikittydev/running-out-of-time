@@ -46,6 +46,7 @@ public class Trigger : MonoBehaviour
 
 		if (collision.CompareTag(TargetTag))
 		{
+			control = collision.GetComponent<PlayerController>();
 			OnEnter.Invoke();
 			_triggered = true;
 		}

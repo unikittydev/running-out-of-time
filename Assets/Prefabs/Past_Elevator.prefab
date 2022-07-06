@@ -318,7 +318,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7921592991739234693}
+      - m_Target: {fileID: 7921592991739234699}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -469,7 +469,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7921592992409232326}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -515,7 +515,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7921592992409232326}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 730aafc7bd9cfc343ab2493ff9fa52a0, type: 3}
   m_Name: 
@@ -565,7 +565,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7921592992409232324}
+      - m_Target: {fileID: 7921592992409232330}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -911,7 +911,7 @@ MonoBehaviour:
   OnOpen:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7921592992409232324}
+      - m_Target: {fileID: 7921592992409232330}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -926,7 +926,7 @@ MonoBehaviour:
   OnClose:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7921592991739234693}
+      - m_Target: {fileID: 7921592991739234699}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
